@@ -12,12 +12,14 @@ dependencies = [
     "python-dotenv",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "pytest",
-    "ruff",
-    "mypy",
-]
+[project.scripts]
+finml = "finml.cli.main:main"
+
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/finml"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/finml",
+]
