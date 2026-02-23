@@ -28,20 +28,23 @@ Each stage is deterministic and versioned.
     finml-system/
     │
     ├── src/finml/
-    │   ├── ingestion/
-    │   ├── features/
-    │   ├── labels/
-    │   ├── training/
+    │   ├── align/
+    │   ├── artifacts/
     │   ├── backtest/
-    │   ├── serving/
-    │   └── monitoring/
+    │   ├── cli/
+    │   ├── config/
+    │   ├── data/
+    │   ├── features/
+    │   ├── ingestion/
+    │   ├── labels/
+    │   └── training/
     │
     ├── configs/
     ├── data/
     ├── models/
     ├── reports/
     ├── scripts/
-    └── docker/
+    └── tests/
 
 ## Core Principles
 
