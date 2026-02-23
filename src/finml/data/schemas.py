@@ -130,7 +130,8 @@ class MarketSchema:
         out["ts"] = _to_utc_datetime(out["ts"])
 
         _cast_numeric(out, ["open", "high", "low", "close", "volume"])
-        _cast_numeric(out, self.optional_cols)
+        numeric_optional = [c for c in self.optional_cols if c != "provider"]
+        _cast_numeric(out, numeric_optional)
 
         _enforce_nonnegative(out, ["volume"])
 
@@ -142,6 +143,8 @@ class MarketSchema:
         _ensure_sorted(out, self.key_cols)
 
         return out
+
+    
 
 
 # Fundamentals schema (availability-based)
