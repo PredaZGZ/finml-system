@@ -13,6 +13,7 @@ def build_market_features(df: pd.DataFrame) -> pd.DataFrame:
       symbol, ts, f_*
     """
     df = df.sort_values(["symbol", "ts"]).copy()
+    df = df.drop_duplicates(subset=["symbol", "ts"], keep="last")
     g = df.groupby("symbol", sort=False)
 
     # returns

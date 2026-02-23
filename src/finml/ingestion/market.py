@@ -82,6 +82,7 @@ def ingest_market(
     print(canonical.dtypes)
     print(canonical["provider"].head())
     canonical = MARKET_SCHEMA.validate(canonical, strict=False)
+    canonical = canonical.drop_duplicates(subset=["symbol", "ts"], keep="last")
 
     out_path = Path(out_dir)
     out_path.mkdir(parents=True, exist_ok=True)

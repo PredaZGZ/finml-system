@@ -22,4 +22,5 @@ def predict(
 
     out = meta[["symbol", "ts"]].copy()
     out["pred"] = p
+    out = out.drop_duplicates(subset=["symbol", "ts"], keep="last")
     return out

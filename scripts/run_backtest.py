@@ -6,11 +6,11 @@ from pathlib import Path
 from finml.data.io import read_parquet, write_parquet
 from finml.training.dataset import build_dataset
 from finml.training.predict import predict
-from finml.backtest.engine import backtest_sign_strategy
+from finml.backtest.engine import backtest_rank_ls
 
 
 def main() -> None:
-    run_id = "20260223T212353Z"
+    run_id = "20260223T224653Z"
     model_path = Path("models/runs") / run_id / "model.joblib"
 
     ds = build_dataset(
@@ -25,7 +25,7 @@ def main() -> None:
     # Load market for realized returns
     market = read_parquet("data/processed/market")
 
-    equity, metrics = backtest_sign_strategy(preds, market, fee_bps=1.0)
+    equity, metrics = backtest_rank_ls(preds, market, long_q=0.1, short_q=0.1, fee_bps=1.0)
 
     # Save
     out_dir = Path("reports/runs") / run_id
