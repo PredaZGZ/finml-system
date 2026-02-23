@@ -213,3 +213,7 @@ data/*
 # Models
 models/*
 !models/README.md
+
+# Reports
+reports/*
+!reports/README.md
