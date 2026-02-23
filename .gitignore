@@ -209,3 +209,7 @@ __marimo__/
 # Data
 data/*
 !data/README.md
+
+# Models
+models/*
+!models/README.md
